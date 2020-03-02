@@ -9,7 +9,10 @@
     xmlns:models="using:CoffeeShop.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <models:Customer x:Key="Thomas" SecondName="Johnson" IsDeveloper="True">Thomas</models:Customer>
+        <models:Customer x:Key="Anna" SecondName="clue" IsDeveloper="True">Anna</models:Customer>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" ></RowDefinition>
@@ -62,10 +65,11 @@
                     </Button>
                 </StackPanel>
                 <ListView Grid.Row="1" x:Name="customerLsitView" DisplayMemberPath="FirstName" SelectionChanged="CustomerLsitView_SelectionChanged">
+                   
                 </ListView>
                  
             </Grid>
-            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="Mohit,Kumar,True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="{StaticResource Anna}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
                 <!--<controls:CustomerDetailsUserControl.Customer>
                     <models:Customer FirstName="Mohit" SecondName="Kumar" IsDeveloper="True"></models:Customer>
         Property Element Syntax
