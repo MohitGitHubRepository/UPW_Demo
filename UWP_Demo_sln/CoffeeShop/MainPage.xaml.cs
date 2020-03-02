@@ -31,6 +31,7 @@ namespace CoffeeShop
 
         public MainPage()
         {
+             
             this.InitializeComponent();
             this.Loaded += MainPageLoaded;
             App.Current.Suspending += App_suspending;
@@ -84,8 +85,8 @@ namespace CoffeeShop
 
         private void CustomerLsitView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var customer = customerLsitView.SelectedItem as Customer;
-            this.CustomerInputControl.Customer = customer;
+            //var customer = customerLsitView.SelectedItem as Customer;
+            //this.CustomerInputControl.Customer = customer;
         }
 
 

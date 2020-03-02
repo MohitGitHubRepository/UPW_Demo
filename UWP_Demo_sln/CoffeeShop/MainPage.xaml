@@ -83,13 +83,7 @@
                 </ListView>
                  
             </Grid>
-            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Background="{ThemeResource ColorBrushGrey}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                <!--<controls:CustomerDetailsUserControl.Customer>
-                    <models:Customer FirstName="Mohit" SecondName="Kumar" IsDeveloper="True"></models:Customer>
-        Property Element Syntax
-                </controls:CustomerDetailsUserControl.Customer>-->
-                <!--  Content propert syntax 
-                <models:Customer  SecondName="Kumar" IsDeveloper="True"> Mohit</models:Customer>-->
+            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="{Binding ElementName=customerLsitView,Path=SelectedItem,Mode=OneWay}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             </controls:CustomerDetailsUserControl>
             <StackPanel  Grid.Row="2" Grid.ColumnSpan="3">
                 <TextBlock Text="{StaticResource CopyRight}" HorizontalAlignment="Center" FontWeight="Bold" Margin="10 30 0 0" ></TextBlock>

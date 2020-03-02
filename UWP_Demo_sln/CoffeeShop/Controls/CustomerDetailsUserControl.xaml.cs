@@ -1,4 +1,5 @@
-﻿using CoffeeShop.Models;
+﻿using System;
+using CoffeeShop.Models;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
@@ -20,24 +21,46 @@ namespace CoffeeShop.Controls
             UpdateCustomer();
         }
 
-        private Customer _customer;
+        //private Customer _customer;
+
+        //public Customer Customer
+        //{
+        //    get {
+        //        if (_customer == null)
+        //        {
+        //            _customer = new Customer();
+        //        }
+
+        //        return _customer; }
+        //    set { _customer = value;
+        //        this.firstName.Text = _customer?.FirstName ?? "";
+        //        this.lastName.Text = _customer?.SecondName ?? "";
+        //        this.isDeveloper.IsChecked = _customer?.IsDeveloper ?? false;
+        //    }
+        //}
+
+
 
         public Customer Customer
         {
-            get {
-                if (_customer == null)
-                {
-                    _customer = new Customer();
-                }
-
-                return _customer; }
-            set { _customer = value;
-                this.firstName.Text = _customer?.FirstName ?? "";
-                this.lastName.Text = _customer?.SecondName ?? "";
-                this.isDeveloper.IsChecked = _customer?.IsDeveloper ?? false;
-            }
+            get { return (Customer)GetValue(CustomerProperty); }
+            set { SetValue(CustomerProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CustomerProperty =
+            DependencyProperty.Register("Customer", typeof(Customer), typeof(CustomerDetailsUserControl), new PropertyMetadata(null,changeInputcontrols));
+
+        private static void changeInputcontrols(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is CustomerDetailsUserControl customerDetailsUserControl)
+            {
+                var customer = e.NewValue as Customer;
+                customerDetailsUserControl.firstName.Text = customer?.FirstName ?? "";
+                customerDetailsUserControl.lastName.Text = customer?.SecondName ?? "";
+                customerDetailsUserControl.isDeveloper.IsChecked = customer?.IsDeveloper ?? false;
+            }
+        }
 
         private void UpdateCustomer()
         {
