@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeShop.Resources">
+   
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="ColorBrushGrey" Color="#222222"></SolidColorBrush>
+            <SolidColorBrush x:Key="ColorBrush" Color="DarkGray"></SolidColorBrush>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="ColorBrushGrey" Color="#EEEEEE"></SolidColorBrush>
+            <SolidColorBrush x:Key="ColorBrush" Color="White"></SolidColorBrush>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+   
+</ResourceDictionary>

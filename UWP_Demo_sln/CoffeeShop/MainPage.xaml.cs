@@ -105,5 +105,10 @@ namespace CoffeeShop
             var deleteCustomer = customerLsitView.SelectedItem as Customer;
             customerLsitView.Items.Remove(deleteCustomer);
         }
+
+        private void Toggle_Click(object sender, RoutedEventArgs e)
+        {
+            this.RequestedTheme = RequestedTheme == ElementTheme.Dark ? ElementTheme.Light : ElementTheme.Dark;
+        }
     }
 }
