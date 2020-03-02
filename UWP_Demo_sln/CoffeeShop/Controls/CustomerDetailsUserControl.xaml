@@ -1,0 +1,18 @@
+﻿<UserControl
+    x:Class="CoffeeShop.Controls.CustomerDetailsUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeShop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <StackPanel x:Name="AddCustomerForm" Background="LightGray" >
+            <TextBox Width="200" Header="First Name" TextChanged="FirstName_TextChanged" x:Name="firstName"  Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
+            <TextBox Width="200" Header="Last Name" TextChanged="LastName_TextChanged" x:Name="lastName" Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
+            <CheckBox Content="Is Developer" x:Name="isDeveloper" Checked="IsDeveloper_Checked" Unchecked="IsDeveloper_Unchecked" Width="1" Margin="0"></CheckBox>
+        </StackPanel>
+  
+</UserControl>
