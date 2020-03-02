@@ -69,14 +69,14 @@ namespace CoffeeShop
             if((int)column==0)
             {
                 NavigationSymbol.Symbol = Symbol.Back;
-                CustomerList.SetValue(Grid.ColumnProperty, 0);
+                CustomerInputControl.SetValue(Grid.ColumnProperty, 0);
                 CustomerListGrid.SetValue(Grid.ColumnProperty, 2);
 
             }
             else
             {
                 NavigationSymbol.Symbol = Symbol.Forward;
-                CustomerList.SetValue(Grid.ColumnProperty, 1);
+                CustomerInputControl.SetValue(Grid.ColumnProperty, 1);
                 CustomerListGrid.SetValue(Grid.ColumnProperty, 0);
             }
 
@@ -85,7 +85,7 @@ namespace CoffeeShop
         private void CustomerLsitView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var customer = customerLsitView.SelectedItem as Customer;
-            this.CustomerList.Customer = customer;
+            this.CustomerInputControl.Customer = customer;
         }
 
 
@@ -93,9 +93,10 @@ namespace CoffeeShop
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             Customer newCustomer = new Customer();
-            newCustomer.FirstName = this.CustomerList.Customer.FirstName;
-            newCustomer.SecondName = this.CustomerList.Customer.SecondName;
-            newCustomer.IsDeveloper = this.CustomerList.Customer.IsDeveloper;
+            
+            newCustomer.FirstName = this.CustomerInputControl.Customer.FirstName;
+            newCustomer.SecondName = this.CustomerInputControl.Customer.SecondName;
+            newCustomer.IsDeveloper = this.CustomerInputControl.Customer.IsDeveloper;
             customerLsitView.Items.Add(newCustomer);
         }
 

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:CoffeeShop.Controls"
+    xmlns:models="using:CoffeeShop.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -64,10 +65,14 @@
                 </ListView>
                  
             </Grid>
-            <controls:CustomerDetailsUserControl  x:Name="CustomerList" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                
+            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="Mohit,Kumar,True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <!--<controls:CustomerDetailsUserControl.Customer>
+                    <models:Customer FirstName="Mohit" SecondName="Kumar" IsDeveloper="True"></models:Customer>
+        Property Element Syntax
+                </controls:CustomerDetailsUserControl.Customer>-->
+                <!--  Content propert syntax 
+                <models:Customer  SecondName="Kumar" IsDeveloper="True"> Mohit</models:Customer>-->
             </controls:CustomerDetailsUserControl>
-
         </Grid.Children>
         
     </Grid>

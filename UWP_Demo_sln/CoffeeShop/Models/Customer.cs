@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation.Metadata;
+using Windows.UI.Xaml.Markup;
 
 namespace CoffeeShop.Models
 {
+    [ContentProperty(Name = "FirstName")]
+    [CreateFromString(MethodName = "CoffeeShop.Models.ConvertCustomer.ConvertFromString")] ///Converting Complex object 
     public class Customer: ObservableClass
     {
  

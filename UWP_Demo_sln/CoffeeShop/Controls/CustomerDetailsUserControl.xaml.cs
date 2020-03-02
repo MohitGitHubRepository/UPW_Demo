@@ -1,28 +1,19 @@
 ﻿using CoffeeShop.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Markup;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace CoffeeShop.Controls
 {
+    [ContentProperty(Name = "Customer")]
     public sealed partial class CustomerDetailsUserControl : UserControl
     {
         public CustomerDetailsUserControl()
         {
             this.InitializeComponent();
+            
         }
         private void FirstName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -33,7 +24,13 @@ namespace CoffeeShop.Controls
 
         public Customer Customer
         {
-            get { return _customer; }
+            get {
+                if (_customer == null)
+                {
+                    _customer = new Customer();
+                }
+
+                return _customer; }
             set { _customer = value;
                 this.firstName.Text = _customer?.FirstName ?? "";
                 this.lastName.Text = _customer?.SecondName ?? "";
@@ -45,12 +42,14 @@ namespace CoffeeShop.Controls
         private void UpdateCustomer()
         {
             var customer = Customer;
+           
             if (customer != null)
             {
                 customer.FirstName = this.firstName.Text;
                 customer.SecondName = this.lastName.Text;
                 customer.IsDeveloper = this.isDeveloper?.IsChecked ?? false;
             }
+
         }
 
         private void LastName_TextChanged(object sender, TextChangedEventArgs e)

@@ -123,6 +123,7 @@
       <DependentUpon>CustomerDetailsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataProvider\CustomerDataProvider.cs" />
+    <Compile Include="Models\ConvertCustomer.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
