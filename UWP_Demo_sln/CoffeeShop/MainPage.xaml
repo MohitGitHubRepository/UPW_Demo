@@ -78,7 +78,18 @@
                         <SymbolIcon x:Name="NavigationSymbol"  Symbol="Forward" ></SymbolIcon>
                     </Button>
                 </StackPanel>
-                <ListView Grid.Row="1" x:Name="customerLsitView" ItemsSource="{Binding Path=Customers,Mode=OneWay}" SelectedItem="{Binding Path=SelectedCustomer,Mode=TwoWay}" DisplayMemberPath="FirstName" SelectionChanged="CustomerLsitView_SelectionChanged">
+                <ListView Grid.Row="1" x:Name="customerLsitView" ItemsSource="{Binding Path=Customers,Mode=OneWay}" 
+                          SelectedItem="{Binding Path=SelectedCustomer,Mode=TwoWay}"
+                          SelectionChanged="CustomerLsitView_SelectionChanged">
+                    <!--To show complete name in listview-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=FirstName,Mode=OneWay}" FontWeight="Bold"></TextBlock>
+                                <TextBlock  Text="{Binding Path=SecondName,Mode=OneWay}" Margin="5 0 0 0"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                    
                 </ListView>
                  
