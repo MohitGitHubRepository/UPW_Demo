@@ -7,12 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400" x:Name="root">
 
     <StackPanel x:Name="AddCustomerForm" >
-            <TextBox Width="200" Header="First Name" TextChanged="FirstName_TextChanged" x:Name="firstName"  Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
-            <TextBox Width="200" Header="Last Name" TextChanged="LastName_TextChanged" x:Name="lastName" Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
-            <CheckBox Content="Is Developer" x:Name="isDeveloper" Checked="IsDeveloper_Checked" Unchecked="IsDeveloper_Unchecked" Width="1" Margin="10"></CheckBox>
+            <TextBox Width="200" Header="First Name" Text="{Binding ElementName=root, Path=Customer.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="firstName"  Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
+        <TextBox Width="200" Header="Last Name" Text="{Binding ElementName=root, Path=Customer.SecondName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="lastName" Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
+        <CheckBox Content="Is Developer" x:Name="isDeveloper" IsChecked="{Binding ElementName=root, Path=Customer.IsDeveloper
+            ,Mode=TwoWay}" Width="1" Margin="10"></CheckBox>
         </StackPanel>
   
 </UserControl>
