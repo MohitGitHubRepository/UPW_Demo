@@ -17,6 +17,7 @@ using Windows.UI.Popups;
 using CoffeeShop.DataProvider;
 using Windows.ApplicationModel;
 using CoffeeShop.Models;
+using CoffeeShop.View_Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,32 +28,31 @@ namespace CoffeeShop
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private CustomerDataProvider _customerDataProvider;
+        //private CustomerDataProvider _customerDataProvider;
+
+        public MainViewModel ViewModel { get; private set; }
 
         public MainPage()
         {
-             
+            ViewModel = new MainViewModel(new CustomerDataProvider());
             this.InitializeComponent();
             this.Loaded += MainPageLoaded;
             App.Current.Suspending += App_suspending;
-            _customerDataProvider = new CustomerDataProvider();
+            // _customerDataProvider = new CustomerDataProvider();
+            this.DataContext = ViewModel;
         }
 
         private async void App_suspending(object sender, SuspendingEventArgs e)
         {
             var deferreal = e.SuspendingOperation.GetDeferral();
-            await _customerDataProvider.saveCustomerData(customerLsitView.Items.OfType<Customer>());
+            //await _customerDataProvider.saveCustomerData(customerLsitView.Items.OfType<Customer>());
+            await ViewModel.SaveCustomer();
             deferreal.Complete();
         }
 
         private async void MainPageLoaded(object sender, RoutedEventArgs e)
         {
-            customerLsitView.Items.Clear();
-         
-            foreach (var customer in await _customerDataProvider.LoadCustomerData())
-            {
-                customerLsitView.Items.Add(customer);
-            }
+            await this.ViewModel.LoadCustomers();
            
         }
 

@@ -10,7 +10,7 @@ using Windows.Storage.Streams;
 
 namespace CoffeeShop.DataProvider
 {
-    public class CustomerDataProvider
+    public class CustomerDataProvider : ICustomerDataProvider
     {
         private static readonly string _customerFileName = "customer.json";
         private static readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;

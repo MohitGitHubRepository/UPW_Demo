@@ -78,12 +78,12 @@
                         <SymbolIcon x:Name="NavigationSymbol"  Symbol="Forward" ></SymbolIcon>
                     </Button>
                 </StackPanel>
-                <ListView Grid.Row="1" x:Name="customerLsitView" DisplayMemberPath="FirstName" SelectionChanged="CustomerLsitView_SelectionChanged">
+                <ListView Grid.Row="1" x:Name="customerLsitView" ItemsSource="{Binding Path=Customers,Mode=OneWay}" SelectedItem="{Binding Path=SelectedCustomer,Mode=TwoWay}" DisplayMemberPath="FirstName" SelectionChanged="CustomerLsitView_SelectionChanged">
                    
                 </ListView>
                  
             </Grid>
-            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="{Binding ElementName=customerLsitView,Path=SelectedItem,Mode=OneWay}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="{Binding Path=SelectedCustomer,Mode=OneWay}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             </controls:CustomerDetailsUserControl>
             <StackPanel  Grid.Row="2" Grid.ColumnSpan="3">
                 <TextBlock Text="{StaticResource CopyRight}" HorizontalAlignment="Center" FontWeight="Bold" Margin="10 30 0 0" ></TextBlock>
