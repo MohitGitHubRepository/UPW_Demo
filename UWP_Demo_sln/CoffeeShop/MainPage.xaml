@@ -78,15 +78,16 @@
                         <SymbolIcon x:Name="NavigationSymbol"  Symbol="Forward" ></SymbolIcon>
                     </Button>
                 </StackPanel>
-                <ListView Grid.Row="1" x:Name="customerLsitView" ItemsSource="{Binding Path=Customers,Mode=OneWay}" 
-                          SelectedItem="{Binding Path=SelectedCustomer,Mode=TwoWay}"
+                <ListView Grid.Row="1" x:Name="customerLsitView" ItemsSource="{x:Bind ViewModel.Customers,Mode=OneWay}" 
+                          SelectedItem="{x:Bind ViewModel.SelectedCustomer,Mode=TwoWay}"
                           SelectionChanged="CustomerLsitView_SelectionChanged">
                     <!--To show complete name in listview-->
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="models:Customer">
                             <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Path=FirstName,Mode=OneWay}" FontWeight="Bold"></TextBlock>
-                                <TextBlock  Text="{Binding Path=SecondName,Mode=OneWay}" Margin="5 0 0 0"></TextBlock>
+                            <TextBlock Text="{x:Bind  FirstName ,Mode=OneWay}" FontWeight="Bold"></TextBlock>
+                                <TextBlock  Text="{x:Bind SecondName,Mode=OneWay}" Margin="5 0 0 0"></TextBlock>
+                                <TextBlock  Text="(Developer)" Margin="5 0 0 0" Opacity="0.5" Visibility="{x:Bind IsDeveloper,Mode=OneWay}"></TextBlock>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -94,7 +95,7 @@
                 </ListView>
                  
             </Grid>
-            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="{Binding Path=SelectedCustomer,Mode=OneWay}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <controls:CustomerDetailsUserControl  x:Name="CustomerInputControl" Customer="{x:Bind ViewModel.SelectedCustomer,Mode=OneWay}" Visibility="{x:Bind ViewModel.isSelected,Mode=OneWay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             </controls:CustomerDetailsUserControl>
             <StackPanel  Grid.Row="2" Grid.ColumnSpan="3">
                 <TextBlock Text="{StaticResource CopyRight}" HorizontalAlignment="Center" FontWeight="Bold" Margin="10 30 0 0" ></TextBlock>

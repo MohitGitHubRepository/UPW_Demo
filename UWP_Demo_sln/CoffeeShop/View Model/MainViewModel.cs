@@ -42,10 +42,12 @@ namespace CoffeeShop.View_Model
                 {
                     _selectedCustomer = value;
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(isSelected));
                 }
             }
         }
 
+        public bool isSelected =>_selectedCustomer != null ? true : false;
         public async Task SaveCustomer()
         {
             await _customerDataProvider.saveCustomerData(Customers);

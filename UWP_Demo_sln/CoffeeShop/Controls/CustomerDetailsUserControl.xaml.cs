@@ -61,7 +61,7 @@ namespace CoffeeShop.Controls
         //        customerDetailsUserControl.isDeveloper.IsChecked = customer?.IsDeveloper ?? false;
         //    }
         //}
-
+      
         //private void UpdateCustomer()
         //{
         //    var customer = Customer;

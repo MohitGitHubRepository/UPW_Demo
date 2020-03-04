@@ -41,6 +41,7 @@ namespace CoffeeShop
             // _customerDataProvider = new CustomerDataProvider();
             this.DataContext = ViewModel;
         }
+        
 
         private async void App_suspending(object sender, SuspendingEventArgs e)
         {
