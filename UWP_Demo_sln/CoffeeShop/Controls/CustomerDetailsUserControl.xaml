@@ -5,13 +5,21 @@
     xmlns:local="using:CoffeeShop.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:stylens="using:CoffeeShop.Resources"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400" x:Name="root">
-
+    <!--<UserControl.Resources> Inheritance of resoources
+        <Style x:Key="myCustomTextboxStyle" TargetType="TextBox" BasedOn="{StaticResource MarginTextbox}">
+            <Setter Property="BorderBrush" Value="Blue"></Setter>
+        </Style>
+        
+    </UserControl.Resources>-->
     <StackPanel x:Name="AddCustomerForm" >
-            <TextBox Width="200" Header="First Name" Text="{x:Bind Customer.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="firstName"  Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
-        <TextBox Width="200" Header="Last Name" Text="{x:Bind Customer.SecondName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="lastName" Margin="10 0 0 0" HorizontalAlignment="Left" ></TextBox>
+        <TextBox  Header="First Name" Text="{x:Bind Customer.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                 x:Name="firstName" Style="{StaticResource MarginTextbox}" ></TextBox>
+        <TextBox Header="Last Name" Text="{x:Bind Customer.SecondName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                 x:Name="lastName"  Style="{StaticResource MarginTextbox}" ></TextBox>
         <CheckBox Content="Is Developer" x:Name="isDeveloper" IsChecked="{x:Bind Customer.IsDeveloper
             ,Mode=TwoWay}" Width="1" Margin="10"></CheckBox>
         </StackPanel>
