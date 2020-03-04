@@ -47,10 +47,24 @@ namespace CoffeeShop.View_Model
             }
         }
 
+
         public bool isSelected =>_selectedCustomer != null ? true : false;
         public async Task SaveCustomer()
         {
             await _customerDataProvider.saveCustomerData(Customers);
+        }
+        public void AddButton_Click()
+        {
+            Customer newCustomer = new Customer();
+          
+            Customers.Add(newCustomer);
+            SelectedCustomer = newCustomer;
+        }
+
+        public void DeleteCustomer_Click()
+        {
+            var deleteCustomer = SelectedCustomer;
+            Customers.Remove(deleteCustomer);
         }
     }
 }

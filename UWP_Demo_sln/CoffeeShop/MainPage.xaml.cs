@@ -92,21 +92,7 @@ namespace CoffeeShop
 
 
      
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            Customer newCustomer = new Customer();
-            
-            newCustomer.FirstName = this.CustomerInputControl.Customer.FirstName;
-            newCustomer.SecondName = this.CustomerInputControl.Customer.SecondName;
-            newCustomer.IsDeveloper = this.CustomerInputControl.Customer.IsDeveloper;
-            customerLsitView.Items.Add(newCustomer);
-        }
-
-        private void DeleteCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            var deleteCustomer = customerLsitView.SelectedItem as Customer;
-            customerLsitView.Items.Remove(deleteCustomer);
-        }
+       
 
         private void Toggle_Click(object sender, RoutedEventArgs e)
         {
